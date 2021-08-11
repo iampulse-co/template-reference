@@ -73,11 +73,11 @@ Include the following section at the top of your **Template**, and check off whi
 
 ### Choosing the type of Template to write
 Before you begin writing your Template it is important to define the nature of the content and the intened audience. We've taken inspiration from the [Diataxis Framework](https://diataxis.fr/), and modeled the content types as the following:
-* Tutorials
-* How-To Guides
-* Reference Architectures
-* Topic Explainers
-* Tips & Tricks
+* [Tutorials](examples/TUTORIAL.md)
+* [How-To Guides](examples/HOWTO.md)
+* [Reference Architectures](examples/REFERENCE.md)
+* [Topic Explainers](examples/EXPLAINER.md)
+* [Tips & Tricks](examples/TIP.md)
 
 Ask yourself what it is you're trying to accomplish with this content.
 * Are you trying to teach a specific skill? (Tutorial)
