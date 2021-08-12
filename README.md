@@ -13,17 +13,17 @@ While our publishing backend is still being developed, follow the instructions b
 Fork this repo, choose one of the examples provided, or just follow along in your own Markdown editor to craft your own template. Our publishing platform (once live) supports a series of select attributes to tag each article appropriately, and includes custom markdown blocks for code snippets and images. 
 
 ### Adding code blocks & images
-As you're writing your Template, if you add a code block, use the standard 3-ticks, and stack the code with reference docs together. 
+As you're writing your Template, if you add a code block, use the standard 3-ticks, and stack the code with reference docs together. Because we're dealing with infrastructure & policy code that will naturally be custom to the environment, it's encouraged to document which variables need to be replaced and/or which elements need to be customized.
 
 *Note: this will be much simpler and streamlined in a web form once our publishing platform is live. For now, excuse the manual markdown process*
 
 ```
 Code:
-{your code here}
+{Your Code Here: make it easy to see what's a variable, like uppercase values.}
 ```
 ```
 Docs:
-{your docs here}
+{Code Docs Here: make note of any variables to replace or elements to customize.}
 ```
 
 When including images, use standard markdown and include a caption.

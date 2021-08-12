@@ -78,11 +78,11 @@
 
 ```
 Code:
-{Your Code Here}
+{Your Code Here: make it easy to see what's a variable, like uppercase values.}
 ```
 ```
 Docs:
-{Code Docs Here}
+{Code Docs Here: make note of any variables to replace or elements to customize.}
 ```
 
 **Images**
