@@ -1,5 +1,7 @@
 # AWS IAM Deep Dive. Chapter 1: Essentials
 
+## Author: [Karen Tovmasyan](https://blog.tovmasyan.io/aws-iam-deep-dive-chapter-1-essentials-a9cfb1931a01)
+
 ![The Key](https://miro.medium.com/max/1400/0*tSJCOuBaULmAQIgQ.png "The Key")
 
 > So I’ve been looking over internets if there are any blog posts or series
