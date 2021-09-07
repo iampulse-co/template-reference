@@ -72,73 +72,12 @@ Chapter 2 described the form and operation of AWS security policy and statement 
 
 Here are some examples :
 
-<table>
-<thead>
-<tr>
-  <th>Element</th>
-  <th>Narrow</th>
-  <th>Medium</th>
-  <th>Wide</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-  <td>Principal</td>
-  <td>Fully-qualified IAM role ARN:
-  <br/><br/>
-  <code>arn:aws:iam::111: ↲</code><br/><code>&nbsp;&nbsp;role/app</code></td>
-  <td>N/A</td>
-  <td>Another AWS Account: <code>123456789012</code> or All AWS accounts <code>*</code></td>
-</tr>
-
-<tr>
-  <td>Action</td>
-  <td>Specific actions:
-  <br/><br/>
-  <code>["s3:GetObject",</code><br/>
-  <code>"s3:GetObjectAcl", "s3:PutObject"]</code></td>
-  <td>All S3 actions starting with <code>GetObject</code>:
-  <br/><br/><code>"s3:GetObject*"</code></td>
-  <td>Full access to S3:
-  <br/><br/>
-  <code>s3:*</code>
-  <br/><br/>
-  or full access to AWS APIs:&nbsp;<code>*:*</code></td>
-</tr>
-
-<tr>
-  <td>Resource</td>
-  <td>Specific bucket and object:
-  <br/><br/>
-  <code>["arn:aws:s3:::app-data",
-        "arn:aws:s3:::app-data/file-1"]</code></td>
-  <td>All objects in a dedicated bucket:<br/><br/><code>["arn:aws:s3:::app-data/*"]</code></td>
-  <td>All objects in a shared bucket: <code>["arn:aws:s3:::shared-data/*"</code>
-  <br/><br/>
-  or
-  <br/><br/>
-  all Buckets: &nbsp;<code>*</code>
-  <br/><br/>
-  (this is what AWS Managed Policies do)</td>
-</tr>
-
-<tr>
-  <td>Condition - <code style="font-size: 11px;">aws:PrincipalArn</code></td>
-  <td><code>arn:aws:iam::111: ↲</code><br/><code>&nbsp;&nbsp;role/app</code><br/><br/>(Same as Principal)</td>
-  <td>All IAM 'app' roles with a known variation:
-  <br/><br/>
-  <code>arn:aws:iam::111:role/app-*</code>
-  <br/><br/>
-  or
-  <br/><br/>
-  <code>arn:aws:iam::111:role/env-prod/app-????????</code>
-  </td>
-  <td>Another AWS Account: <code>123456789012</code> or All AWS accounts <code>*</code><br/><br/>(Same as Principal)</td>
-</tr>
-
-</tbody>
-</table>
+| Element | Narrow | Medium | Wide |
+| ------- | ------ | ------ | ---- |
+| Principal | Fully-qualified IAM role ARN: arn:aws:iam::111: | N/A | Another AWS Account: `123456789012` or All AWS accounts `*` |
+| Action | Specific actions: `["s3:GetObject","s3:GetObjectAcl", "s3:PutObject"]` | All S3 actions starting with `GetObject`:`"s3:GetObject*"` | Full access to S3: `s3:*` or full access to AWS APIs `*:*` |
+| Resource | Specific bucket and object: `["arn:aws:s3:::app-data","arn:aws:s3:::app-data/file-1"]` | All objects in a dedicated bucket:`["arn:aws:s3:::app-data/*"]` | All objects in a shared bucket: `["arn:aws:s3:::shared-data/*"` or all Buckets: `*` (this is what AWS Managed Policies do) |
+| Condition - `aws:PrincipalArn` | `arn:aws:iam::111:role/app` (Same as Principal) | All IAM 'app' roles with a known variation: `arn:aws:iam::111:role/app-*` or `arn:aws:iam::111:role/env-prod/app-????????` |  Another AWS Account: `123456789012` or All AWS accounts `*` (Same as Principal) |
 
 **Table 3.1 How wildcards affect scope**
 
@@ -178,7 +117,7 @@ Engineers are using a system which has not been designed for usability.
 
 The AWS security policy system requires users to know and understand a tremendous amount in order to use it effectively.  Engineers must understand a lot about how AWS security policies are evaluated, how the policy language works, the features of the policy language for a given service, and the state of the system in order to create a mental model and finally create policies.
 
-This is a serious usability problem because there is a large difference between what most engineers have and what they need to secure resources effectively.  Engineers must expend a lot of effort to configure AWS IAM correctly.  Usability expert Don Norman describes this as two "Gulfs"[^1] in [The Design of Everyday Things][4]:
+This is a serious usability problem because there is a large difference between what most engineers have and what they need to secure resources effectively.  Engineers must expend a lot of effort to configure AWS IAM correctly.  Usability expert Don Norman describes this as two "Gulfs" [^1] in [The Design of Everyday Things][4]:
 
 ![Gulfs of Execution & Evaluation for AWS Security](https://effectiveiam.com/EIAM-norman-gulfs-aws-security.png)
 [//]: # (Do not change the following lines as it may break the rendering of your objects)
@@ -230,16 +169,13 @@ These approaches have several benefits:
 
 **We must help engineers use the information they _have_** to create great security outcomes.
 
-[^1]:	Norman, Donald A.. The Design of Everyday Things (p. 38). Basic Books. Kindle Edition.
+Footnotes:  
+[^1]: Norman, Donald A.. The Design of Everyday Things (p. 38). Basic Books. Kindle Edition.  
+[^2]: Norman, Donald A.. The Design of Everyday Things (p. 123). Basic Books. Kindle Edition.  
+[^3]: Norman, Donald A.. The Design of Everyday Things (p. 76). Basic Books. Kindle Edition.
 
-[^2]:	Norman, Donald A.. The Design of Everyday Things (p. 123). Basic Books. Kindle Edition.
-
-[^3]:	Norman, Donald A.. The Design of Everyday Things (p. 76). Basic Books. Kindle Edition.
-
-[1]:	https://aws.amazon.com/blogs/aws/happy-10th-birthday-aws-identity-and-access-management/
-[2]:	https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html
-[3]:	https://twitter.com/mamip_aws
-[4]:	https://www.basicbooks.com/titles/don-norman/the-design-of-everyday-things/9780465050659/
-[^5]:	https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
-
-Cover photo by [Michał Parzuchowski](https://unsplash.com/photos/geNNFqfvw48) on [Unsplash](https://unsplash.com/).
+[1]: https://aws.amazon.com/blogs/aws/happy-10th-birthday-aws-identity-and-access-management/
+[2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html
+[3]: https://twitter.com/mamip_aws
+[4]: https://www.basicbooks.com/titles/don-norman/the-design-of-everyday-things/9780465050659/
+[5]: https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
