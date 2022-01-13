@@ -71,7 +71,7 @@ Include the following section at the top of your **Article**, and check off whic
 ## Your Article
 
 ### Choosing the type of Article to write
-Before you begin writing your Article it is important to define the nature of the content and the intened audience. We've taken inspiration from the [Diataxis Framework](https://diataxis.fr/), and modeled the content types as the following:
+Before you begin writing your Article it is important to define the nature of the content and the intended audience. We've taken inspiration from the [Diataxis Framework](https://diataxis.fr/), and modeled the content types as the following:
 * [Tutorials](examples/TUTORIAL.md)
 * [How-To Guides](examples/HOWTO.md)
 * [Reference Architectures](examples/REFERENCE.md)
